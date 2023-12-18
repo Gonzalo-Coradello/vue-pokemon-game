@@ -2,6 +2,10 @@
     <h1 v-if="!pokemon">Espere por favor...</h1>
 
     <div v-else>
+        <div class="score">
+            <p>Puntaje actual: {{ currentScore }}</p>
+            <p>Puntaje máximo: {{ highestScore }}</p>
+        </div>
         <h1>¿Quién es este Pokémon?</h1>
         <PokemonPicture 
             :pokemon-id="pokemon.id" 
@@ -14,7 +18,8 @@
 
         <template v-if="showAnswer" class="fade-in">
             <h2>{{ message }}</h2>
-            <button @click="newGame">Nuevo juego</button>
+            <h3 v-if="currentScore === 0">¡Acertaste {{ lastScore }}!</h3>
+            <button @click="newGame">{{ currentScore === 0 ? 'Nuevo juego' : 'Siguiente' }}</button>
         </template>
     </div>
 </template>
@@ -32,7 +37,10 @@ export default {
             pokemon: null,
             showPokemon: false,
             showAnswer: false,
-            message: ''
+            message: '',
+            currentScore: 0,
+            lastScore: 0,
+            highestScore: 0
         }
     },
     methods: {
@@ -48,8 +56,14 @@ export default {
 
             if(selectedId === this.pokemon.id) {
                 this.message = `Correcto, ${this.pokemon.name}`
+                this.currentScore++
+                if (this.currentScore > this.highestScore) {
+                    this.highestScore = this.currentScore
+                }
             } else {
                 this.message = `Oops, era ${this.pokemon.name}`
+                this.lastScore = this.currentScore
+                this.currentScore = 0
             }
         },
         newGame() {
@@ -67,3 +81,10 @@ export default {
 }
 
 </script>
+
+<style scoped>
+.score {
+    text-align: right;
+    margin-bottom: 1rem;
+}
+</style>
