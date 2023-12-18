@@ -87,4 +87,20 @@ export default {
     text-align: right;
     margin-bottom: 1rem;
 }
+
+button {
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 250px;
+    padding-block: 6px;
+    margin-top: 0.5rem;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
 </style>
