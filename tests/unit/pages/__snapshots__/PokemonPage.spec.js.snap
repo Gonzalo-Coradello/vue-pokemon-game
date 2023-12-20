@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PokemonPage Component > debe hacer match con el snapshot cuando cargan los pokemons 1`] = `
+"<div data-v-2108564c="">
+  <div data-v-2108564c="" class="score">
+    <p data-v-2108564c="">Puntaje actual: 0</p>
+    <p data-v-2108564c="">Puntaje máximo: 0</p>
+  </div>
+  <h1 data-v-2108564c="">¿Quién es este Pokémon?</h1>
+  <pokemon-picture-stub data-v-2108564c="" pokemonid="1" showpokemon="false"></pokemon-picture-stub>
+  <pokemon-options-stub data-v-2108564c="" pokemons="[object Object],[object Object],[object Object],[object Object]"></pokemon-options-stub>
+  <!--v-if-->
+</div>"
+`;

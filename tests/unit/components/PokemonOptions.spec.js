@@ -43,8 +43,4 @@ describe('PokemonOptions component', () => {
         expect(wrapper.emitted('selection')[2]).toEqual([3])
         expect(wrapper.emitted('selection')[3]).toEqual([4])
     })
-
-    test('', () => {
-
-    })
 })
